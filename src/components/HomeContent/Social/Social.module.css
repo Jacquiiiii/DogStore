@@ -1,0 +1,47 @@
+.dogs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 75px;
+  gap: 30px;
+}
+
+.header {
+  text-align: center;
+}
+
+.dogsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-bottom: 50px;
+}
+
+.dog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 300px;
+  height: 200px;
+  background: rgb(231, 231, 234);
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dogImage {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.bio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
