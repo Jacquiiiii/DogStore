@@ -9,7 +9,7 @@ interface UserParams {
 }
 
 // Retrieves user from the database filtered by params
-export const getFilteredUser = async (params: UserParams) => getDataFromDb('users', params)
+export const getFilteredUser = async (params: UserParams) => getDataFromDb('dogstore_users', params)
 
 // Adds a user to the database
-export const addUser = async (params: UserParams) => addDataToDb('users', params)
+export const addUser = async (params: UserParams) => addDataToDb('dogstore_users', params)

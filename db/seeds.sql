@@ -1,4 +1,4 @@
-INSERT INTO users (first_name, last_name, password, email) VALUES
+INSERT INTO dogstore_users (first_name, last_name, password, email) VALUES
   ('John', 'Doe', 'password123', 'johndoe@example.com'),
   ('Jane', 'Smith', 'password456', 'janesmith@example.com'),
   ('Michael', 'Johnson', 'password789', 'michaeljohnson@example.com'),
@@ -31,7 +31,7 @@ INSERT INTO products (product_name, description, src, price, discounted_price, s
 
   ('Sweet Potato Crunchies', 'Grain-free, oven-baked sweet potato treats. Perfect for training or just because your dog deserves it!', 'https://i.etsystatic.com/10202447/r/il/48fb42/1795256471/il_fullxfull.1795256471_8zz7.jpg', 99.99, 0, 600, 69, 'treats');
 
-INSERT INTO orders (user_id) VALUES
+INSERT INTO orders (dogstore_user_id) VALUES
   (1),
   (2),
   (3),

@@ -1,9 +1,9 @@
 DROP TABLE IF EXISTS order_items;
 DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS products;
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS dogstore_users;
 
-CREATE TABLE users (
+CREATE TABLE dogstore_users (
   id SERIAL PRIMARY KEY,
   first_name VARCHAR(100) NOT NULL,
   last_name VARCHAR(100) NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE products (
 
 CREATE TABLE orders (
   id SERIAL PRIMARY KEY,
-  user_id INTEGER REFERENCES users(id),
+  dogstore_user_id INTEGER REFERENCES dogstore_users(id),
   created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
