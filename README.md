@@ -1,8 +1,12 @@
-# 🐶 The Dog Store 🐶
+# The Dog Store 🐶
 
-The Dog Store is a mock e-commerce application that sells dog supplies. Users can view and filter products, register for an account and login to an existing account.
+The Dog Store is a mock e-commerce application that sells dog supplies.
 
-Coming soon: Checkout functionality and testing.
+### Current functionality
+- Users can view and filter products
+- Users can register for an account
+- Users can log in to an existing account
+- Coming soon: Checkout functionality and testing
 
 ### Tech stack:
 - [Next.js](https://nextjs.org/)
@@ -12,9 +16,8 @@ Coming soon: Checkout functionality and testing.
 - [PostgreSQL](https://www.postgresql.org/)
 
 ### Packages used:
-- [pg](https://www.npmjs.com/package/pg) for database connection
-- [bcrypt](https://www.npmjs.com/package/bcrypt) for password hashing
-
+- [pg](https://www.npmjs.com/package/pg)
+- [bcrypt](https://www.npmjs.com/package/bcrypt)
 
 ### Getting started:
 - Clone this repository
