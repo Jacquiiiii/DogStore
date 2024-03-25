@@ -2,6 +2,7 @@ import Head from "next/head"
 import HomeContent from "@/components/HomeContent/HomeContent"
 import Layout from "@/components/Layout/Layout"
 import { Product, ProductsProps } from "./shop"
+import { getProducts } from "@/apis/products/productsService"
 
 const Home = ({ productsData }: ProductsProps) => {
   return (
@@ -18,8 +19,13 @@ const Home = ({ productsData }: ProductsProps) => {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch('http://localhost:3000/api/products')
-  const productsData: Product[] = await res.json()
+  // Fetches directly from the API as props are obtained at server build time
+  const rawProductsData: Product[] = await getProducts()
+
+  const productsData = rawProductsData.map(product => ({
+    ...product,
+    created_at: product.created_at?.toString(),
+  }))
 
   return {
     props: { productsData: productsData },
