@@ -10,6 +10,7 @@ const Nav = () => {
   const { setProductCategory } = useContext(ProductCategoryContext)
   const { handleLogout } = useLogout()
   const isLoggedIn: boolean = useSelector((state: RootState) => state.login.isLoggedIn)
+  const cartItems = useSelector((state: RootState) => state.cart)
 
   return (
     <div className={styles.nav}>
@@ -81,13 +82,14 @@ const Nav = () => {
               />
             </Link>
           }
-          <Link href='/checkout' className={styles.link}>
+          <Link href='/cart' className={styles.cartLink}>
             <img 
               src="https://icons.veryicon.com/png/o/miscellaneous/first/cart-32.png" 
               alt="Cart" 
               className={styles.icon}
               title="Cart"
             />
+            <span className={styles.cartCount}>({cartItems.length})</span>
           </Link>
         </div>
       </div>
