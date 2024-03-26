@@ -1,0 +1,23 @@
+.cart {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 35px;
+}
+
+.header {
+  margin-bottom: 75px;
+}
+
+.emptyCart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.continueShopping:hover {
+  text-decoration: underline;
+}

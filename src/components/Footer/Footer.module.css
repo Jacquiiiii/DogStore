@@ -76,7 +76,7 @@
 
 @media (max-width: 575px) {
   .footer {
-    height: 245px;
+    height: 325px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -85,11 +85,17 @@
     padding-bottom: 20px;
   }
 
-  .linksContainer {
-    gap: 10px;
+  .footerContent {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
   }
 
-  .disclaimer {
-    font-size: calc(0.5em + 0.9vw);
+  .contact {
+    align-items: center;
+  }
+
+  .links {
+    align-items: center;
   }
 }

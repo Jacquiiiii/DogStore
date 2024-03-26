@@ -56,6 +56,13 @@
   color: rgb(128, 0, 58);
 }
 
+.cartLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
 .icon {
   width: 25px;
   height: 25px;
