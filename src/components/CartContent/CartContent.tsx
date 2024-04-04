@@ -12,14 +12,15 @@ const CartContent = () => {
       <h2 className={styles.header}>Cart</h2>
       {cartItems.length > 0 &&
         <>
-          <div>
+          <div className={styles.cartItems}>
             {cartItems.map((product: Product) => (
               <CartItem key={product.id} product={product} />
             ))}
           </div>
-          <div>
-          <span>Total: ${total}</span>
-        </div>
+          <div className={styles.checkout}>
+            <span>Total: ${total}</span>
+            <button className={styles.checkoutButton}>Checkout</button>
+          </div>
         </>
       }
       {cartItems.length === 0 &&
