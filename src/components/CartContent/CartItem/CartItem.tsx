@@ -1,10 +1,10 @@
 import { useDispatch } from 'react-redux'
 import { removeItemFromCart } from '../../../store/slices/cartSlice'
-import { Product } from '@/pages/shop'
 import styles from './CartItem.module.css'
+import { Item } from '@/hooks/useCart'
 
 interface CartItemProps {
-  product: Product
+  product: Item
 }
 
 const CartItem = ({ product }: CartItemProps) => {
@@ -14,13 +14,21 @@ const CartItem = ({ product }: CartItemProps) => {
   const price = Number(product.price).toFixed(2)
 
   return (
-    <div>
-      <div>
-        <span>{product.product_name} </span>
+    <div className={styles.cartItem}>
+      <div className={styles.productName}>
+        <span>{product.product_name}</span>
+        {product.quantity && product.quantity > 1 && 
+          <span className={styles.quantity}>({product.quantity})</span>
+        }
       </div>
-      <div>
+      <div className={styles.checkout}>
         <span>${price}</span>
-        <button onClick={() => dispatch(removeItemFromCart(product))}>🗑️</button>
+        <button 
+          onClick={() => dispatch(removeItemFromCart(product))}
+          className={styles.removeButton}
+        >
+          ✖️
+        </button>
       </div>
     </div>
   )
