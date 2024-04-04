@@ -3,11 +3,39 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin-top: 35px;
 }
 
 .header {
-  margin-bottom: 75px;
+  margin-bottom: 30px;
+}
+
+.cartItems {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout {
+  display: flex;
+  gap: 25px;
+  margin-top: 25px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.checkoutButton {
+  background-color: rgb(128, 0, 58);
+  color: white;
+  border: none;
+  border-radius: 2px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.checkoutButton:hover {
+  background-color: #f7af1d;
 }
 
 .emptyCart {
