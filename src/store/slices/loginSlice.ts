@@ -1,9 +1,5 @@
+import { LoginState } from '@/types/types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-
-interface LoginState {
-  isLoggedIn: boolean,
-  userId: string,
-}
 
 const initialState: LoginState = {
   isLoggedIn: false,

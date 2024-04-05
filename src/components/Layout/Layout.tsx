@@ -5,12 +5,9 @@ import ProductCategoryProvider from '../../providers/ProductCategoryProvider'
 import Footer from "../Footer/Footer"
 import Nav from "../Nav/Nav"
 import ScrollToTop from '../ScrollToTop/ScrollToTop'
+import { LayoutProps } from '@/types/types'
 
 const raleway = Raleway({ subsets: ["latin"] })
-
-interface LayoutProps {
-  children: ReactNode
-}
 
 const Layout = ({ children }: LayoutProps) => {
   return (

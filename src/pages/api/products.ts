@@ -1,17 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import { handleGetProducts } from "../../apis/products/productsController"
-
-type Data = {
-  name: string
-}
-
-type ErrorData = {
-  message: string
-}
+import { ResponseData, ResponseErrorData } from "@/types/types"
 
 const phonesHandler = (
   req: NextApiRequest,
-  res: NextApiResponse<Data | ErrorData>,
+  res: NextApiResponse<ResponseData | ResponseErrorData>,
 ) => {
   if (req.method === 'GET') {
     handleGetProducts(req, res)

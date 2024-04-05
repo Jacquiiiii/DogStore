@@ -1,30 +1,16 @@
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { RootState } from '../store/store'
-import { Product } from '@/pages/shop'
-
-export type Item = {
-  id: number,
-  product_name: string,
-  description: string,
-  src: string,
-  price: string,
-  discounted_price: string,
-  sales_count: number,
-  inventory_count: number,
-  category: string,
-  created_at: string,
-  quantity: number
-}
+import { Product } from '@/types/types'
 
 const useCart = () => {
   const initialCartItems = useSelector((state: RootState) => state.cart)
-  const cartItems: Item[] = []
+  const cartItems: Product[] = []
 
   for (const item of initialCartItems) {
     const existingItem = cartItems.find((newItem) => newItem.id === item.id)
 
-    if (existingItem) {
+    if (existingItem && existingItem.quantity) {
       existingItem.quantity += 1
       existingItem.price = (Number(existingItem.price) + Number(item.price)).toString()
     } else {

@@ -2,23 +2,7 @@ import Head from "next/head"
 import Layout from "@/components/Layout/Layout"
 import ShopContent from "@/components/ShopContent/ShopContent"
 import { getProducts } from "@/apis/products/productsService"
-
-export type Product = {
-  id: number,
-  product_name: string,
-  description: string,
-  src: string,
-  price: string,
-  discounted_price: string,
-  sales_count: number,
-  inventory_count: number,
-  category: string,
-  created_at: string
-}
-
-export type ProductsProps = {
-  productsData: Product[]
-}
+import { Product, ProductsProps } from "@/types/types"
 
 const Shop = ({ productsData }: ProductsProps) => {
   return (

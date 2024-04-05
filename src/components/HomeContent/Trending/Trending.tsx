@@ -1,4 +1,4 @@
-import { ProductsProps } from '@/pages/shop'
+import { ProductsProps } from '@/types/types'
 import styles from './Trending.module.css'
 
 const Trending = ({productsData}: ProductsProps) => {

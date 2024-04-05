@@ -1,8 +1,8 @@
-import { Product } from '@/pages/shop'
 import styles from './CartContent.module.css'
 import CartItem from './CartItem/CartItem'
 import Link from 'next/link'
 import useCart from '@/hooks/useCart'
+import { Product } from '@/types/types'
 
 const CartContent = () => {
   const { cartItems, total } = useCart()

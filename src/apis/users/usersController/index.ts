@@ -1,17 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import bcrypt from "bcrypt"
-import { ErrorData } from "@/pages/api/users"
 import { addUser, getFilteredUser } from "../usersService"
-
-type Data = {
-  id: string
-  name: string
-}
+import { ResponseData, ResponseErrorData } from "@/types/types"
 
 // Handles HTTP POST request to retrieve filtered user from the database
 export const handlePostToFilterUser = async (
   req: NextApiRequest,
-  res: NextApiResponse<Data | ErrorData>,
+  res: NextApiResponse<ResponseData | ResponseErrorData>,
 ) => {
   try {
     const { password } = req.body
@@ -22,7 +17,7 @@ export const handlePostToFilterUser = async (
       res.json({ message: `Passwords did not match` }) : 
       res.status(200).json({ id: user[0].id, name: user[0].first_name })
   } catch (error: unknown) {
-    const errorData: ErrorData = { message: 'Internal Server Error. Cannot GET user.' }
+    const errorData: ResponseErrorData = { message: 'Internal Server Error. Cannot GET user.' }
     res.status(500).json(errorData)
   }
 }
@@ -30,7 +25,7 @@ export const handlePostToFilterUser = async (
 // Handles HTTP POST request to add user to the database
 export const handlePostToAddUser = async (
   req: NextApiRequest,
-  res: NextApiResponse<Data | ErrorData>,
+  res: NextApiResponse<ResponseData | ResponseErrorData>,
 ) => {
   try {
     const { first_name, last_name, email, password } = req.body.data
@@ -40,7 +35,7 @@ export const handlePostToAddUser = async (
 
     res.status(200).json({ id: user[0].id, name: user[0].first_name })
   } catch (error: unknown) {
-    const errorData: ErrorData = { message: 'Internal Server Error. Cannot POST user.' }
+    const errorData: ResponseErrorData = { message: 'Internal Server Error. Cannot POST user.' }
     res.status(500).json(errorData)
   }
 }

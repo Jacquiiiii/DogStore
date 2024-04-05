@@ -1,7 +1,7 @@
-import { Product, ProductsProps } from '@/pages/shop'
 import styles from './Products.module.css'
 import { useDispatch } from 'react-redux'
 import { addItemToCart } from '@/store/slices/cartSlice'
+import { ProductsProps } from '@/types/types'
 
 const Products = ({ productsData }: ProductsProps) => {
   const dispatch = useDispatch()

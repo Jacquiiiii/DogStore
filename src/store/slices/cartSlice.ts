@@ -1,4 +1,4 @@
-import { Product } from '@/pages/shop'
+import { Product, ProductsProps } from '@/types/types'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export const cartSlice = createSlice({
