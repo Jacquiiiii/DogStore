@@ -1,10 +1,10 @@
 import styles from './ShopContent.module.css'
 import Products from './Products/Products'
-import { ProductsProps } from '@/pages/shop'
 import { useContext, useEffect, useState } from 'react'
 import { ProductCategoryContext } from '@/providers/ProductCategoryProvider'
 import { productFilter } from './utils/productFilter'
 import Menu from './Menu/Menu'
+import { ProductsProps } from '@/types/types'
 
 const ShopContent = ({ productsData }: ProductsProps) => {
   const { productCategory } = useContext(ProductCategoryContext)

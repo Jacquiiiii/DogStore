@@ -1,17 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import { handlePostToFilterUser, handlePostToAddUser } from "../../apis/users/usersController"
-
-export type Data = {
-  name: string
-}
-
-export type ErrorData = {
-  message: string
-}
+import { ResponseData, ResponseErrorData } from "@/types/types"
 
 const usersHandler = (
   req: NextApiRequest,
-  res: NextApiResponse<Data | ErrorData>,
+  res: NextApiResponse<ResponseData | ResponseErrorData>,
 ) => {
   if (req.method === 'POST') {
     if (req.body.type === 'login') {

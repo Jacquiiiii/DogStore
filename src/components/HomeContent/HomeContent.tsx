@@ -1,4 +1,4 @@
-import { ProductsProps } from '@/pages/shop'
+import { ProductsProps } from '@/types/types'
 import styles from './HomeContent.module.css'
 import Social from './Social/Social'
 import Trending from './Trending/Trending'

@@ -1,11 +1,7 @@
 import { useDispatch } from 'react-redux'
 import { removeItemFromCart } from '../../../store/slices/cartSlice'
 import styles from './CartItem.module.css'
-import { Item } from '@/hooks/useCart'
-
-interface CartItemProps {
-  product: Item
-}
+import { CartItemProps } from '@/types/types'
 
 const CartItem = ({ product }: CartItemProps) => {
   const dispatch = useDispatch()

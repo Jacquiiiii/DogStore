@@ -1,8 +1,8 @@
 import Head from "next/head"
 import HomeContent from "@/components/HomeContent/HomeContent"
 import Layout from "@/components/Layout/Layout"
-import { Product, ProductsProps } from "./shop"
 import { getProducts } from "@/apis/products/productsService"
+import { Product, ProductsProps } from "@/types/types"
 
 const Home = ({ productsData }: ProductsProps) => {
   return (
