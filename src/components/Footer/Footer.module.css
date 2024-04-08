@@ -45,26 +45,22 @@
   justify-content: center;
   gap: 10px;
   color: whitesmoke;
-  font-size: 12px;
   margin-top: 50px;
   text-align: flex-end;
+  font-size: 13px;
 }
 
 .hr {
-  width: 73%;
+  width: 90%;
 }
 
 .disclaimer {
   display: flex;
-  width: 73%;
+  width: 90%;
   justify-content: flex-start;
 }
 
 @media (max-width: 950px) {
-  .footer {
-    font-size: calc(0.5em + 0.9vw);
-  }
-
   .contact {
     margin-left: 5px;
   }
@@ -74,9 +70,9 @@
   }
 }
 
-@media (max-width: 575px) {
+@media (max-width: 768px) {
   .footer {
-    height: 325px;
+    height: 375px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -88,14 +84,24 @@
   .footerContent {
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 50px;
   }
 
-  .contact {
-    align-items: center;
+  .disclaimer {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 375px) {
+  .linksContainer {
+    gap: 15px;
   }
 
-  .links {
-    align-items: center;
+  .linksHeader {
+    font-size: 18px;
+  }
+
+  .jacqui {
+    font-size: 12px;
   }
 }

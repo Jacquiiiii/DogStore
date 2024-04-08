@@ -16,25 +16,25 @@ const Footer = () => {
         </div>
         <div className={styles.linksContainer}>
           <div className={styles.links}>
-            <h2>Products</h2>
+            <h2 className={styles.linksHeader}>Products</h2>
             <Link href='' className={styles.link} onClick={() => setProductCategory('food')}>Food</Link>
             <Link href='' className={styles.link} onClick={() => setProductCategory('treats')}>Treats</Link>
             <Link href='' className={styles.link} onClick={() => setProductCategory('toys')}>Toys</Link>
             <Link href='' className={styles.link} onClick={() => setProductCategory('supplies')}>Supplies</Link>
           </div>
           <div className={styles.links}>
-            <h2>About</h2>
+            <h2 className={styles.linksHeader}>About</h2>
             <Link href='' className={styles.link}>About Us</Link>
             <Link href='' className={styles.link}>Accessibility</Link>
             <Link href='' className={styles.link}>Sustainability</Link>
             <Link href='' className={styles.link}>Careers</Link>
           </div>
           <div className={styles.links}>
-            <h2>Help</h2>
+            <h2 className={styles.linksHeader}>Help</h2>
             <Link href='' className={styles.link}>Help Center</Link>
             <Link href='' className={styles.link}>Contact Us</Link>
-            <Link href='' className={styles.link}>Shipping & Returns</Link>
-            <Link href='' className={styles.link}>Discounts</Link>
+            <Link href='' className={styles.link}>Shipping</Link>
+            <Link href='' className={styles.link}>Returns</Link>
           </div>
         </div>
       </div>
