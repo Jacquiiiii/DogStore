@@ -71,15 +71,17 @@
   .menuContent {
     display: flex;
     justify-content: space-between;
+    gap: 5px;
     align-items: center;
-    width: 90%;
+    width: 70%;
   }
 
   .searchInput {
     border: 1px solid black;
     border-radius: 20px;
     width: 150px;
-    padding: 7px 0;
+    flex-shrink: 1;
+    padding: 8px 0;
   }
 
    .buttonContainer {
@@ -93,8 +95,15 @@
   .dropdown {
     border: 1px solid black;
     border-radius: 20px;
-    width: 125px;
+    width: 150px;
+    flex-shrink: 1;
     color: black;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .menuContent {
+    width: 90%;
   }
 }
 
