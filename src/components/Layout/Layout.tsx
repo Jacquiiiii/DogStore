@@ -19,7 +19,7 @@ const Layout = ({ children }: LayoutProps) => {
           {children}
           <div style={{height: '100px'}} />
           <Footer />
-          <ScrollToTop />
+          {/* <ScrollToTop /> */}
         </ProductCategoryProvider>
       </main>
     </>
