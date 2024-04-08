@@ -1,0 +1,57 @@
+.topContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 75px;
+  padding: 50px 15px;
+}
+
+.storeName {
+  font-size: 50px;
+}
+
+.links {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rightLinks {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+}
+
+.leftLinks {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-left: 20px;
+}
+
+.link {
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: rgb(128, 0, 58);
+}
+
+.cartLink {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.linkIcon {
+  width: 25px;
+  height: 25px;
+}
+
+@media (max-width: 600px) {
+  .desktopNav {
+    display: none;
+  }
+}

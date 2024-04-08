@@ -8,7 +8,6 @@ const RegisterContent = () => {
   return (
     <div className={styles.register}>
       <div className={styles.registerWrapper}>
-        <h2 className={styles.title}>Register</h2>
         <form onSubmit={handleSubmit} className={styles.form}>
           <input
             className={styles.input}

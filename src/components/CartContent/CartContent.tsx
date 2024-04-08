@@ -9,9 +9,8 @@ const CartContent = () => {
 
   return (
     <div className={styles.cart}>
-      <h2 className={styles.header}>Cart</h2>
       {cartItems.length > 0 &&
-        <>
+        <div className={styles.fullCart}>
           <div className={styles.cartItems}>
             {cartItems.map((product: Product) => (
               <CartItem key={product.id} product={product} />
@@ -21,7 +20,7 @@ const CartContent = () => {
             <span>Total: ${total}</span>
             <button className={styles.checkoutButton}>Checkout</button>
           </div>
-        </>
+        </div>
       }
       {cartItems.length === 0 &&
         <div className={styles.emptyCart}>

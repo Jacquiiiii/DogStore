@@ -6,6 +6,7 @@ The Dog Store is a mock e-commerce application that sells dog supplies.
 - Users can view and filter products
 - Users can register for an account
 - Users can log in to an existing account
+- Users can add products to cart
 - Coming soon: Checkout functionality and testing
 
 ### Tech stack:
@@ -31,5 +32,5 @@ The Dog Store is a mock e-commerce application that sells dog supplies.
 - Start the app: `npm run dev`
 
 ### Acknowledgements:
-- Icons are from [icons.veryicon](https://icons.veryicon.com)
+- Icons are from [icons.veryicon](https://veryicon.com)
 - Dog photos are from [unsplash](https://unsplash.com/photos)

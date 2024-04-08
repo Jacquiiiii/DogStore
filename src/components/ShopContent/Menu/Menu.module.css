@@ -8,7 +8,7 @@
 .search {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 2px;
 }
 
 .searchInput {
@@ -19,7 +19,7 @@
 }
 
 .searchInput:focus {
-  outline: 2px solid rgb(128, 0, 58);
+  outline: none;
 }
 
 .searchButton {
@@ -29,27 +29,35 @@
   font-size: 20px;
 }
 
-.buttons {
+.buttonContainer {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
+  width: 80%;
+  margin-top: 10px;
 }
 
 .button {
   text-align: left;
   border: none;
   background: none;
-  font-size: 16px;
   cursor: pointer;
   transition: text-decoration 0.3s;
+  padding: 2px 7px;
 }
 
 .selected {
-  font-weight: 800;
+  background: rgb(243, 239, 239);
+  border-radius: 20px;
 }
 
 .button:hover {
-  text-decoration: underline;
+  background: rgb(243, 239, 239);
+  border-radius: 20px;
+}
+
+.dropdownContainer {
+  display: none;
 }
 
 @media screen and (max-width: 768px) {
@@ -60,21 +68,47 @@
     margin-left: 0;
   }
 
-  .buttons {
-    flex-direction: row;
+  .menuContent {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
+    width: 70%;
   }
 
   .searchInput {
-    width: 250px;
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 150px;
+    flex-shrink: 1;
+    padding: 8px 0;
+  }
+
+   .buttonContainer {
+    display: none;
+  }
+
+  .dropdownContainer {
+    display: flex;
+  }
+
+  .dropdown {
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 150px;
+    flex-shrink: 1;
+    color: black;
   }
 }
 
-@media screen and (max-width: 575px) {
-  .buttons {
-    width: 325px;
-    flex-wrap: wrap;
+@media screen and (max-width: 500px) {
+  .menuContent {
+    width: 90%;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 907px) {
+  .menu {
+    margin-left: 15px;
   }
 }
