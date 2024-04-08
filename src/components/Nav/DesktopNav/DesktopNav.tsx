@@ -14,20 +14,19 @@ const DesktopNav = () => {
 
   const cartIcon = 'https://icons.veryicon.com/png/o/education-technology/alibaba-big-data-oneui/shopping-bag-22.png'
 
+  const links = [
+    { href: '/shop', text: 'Shop', category: 'all' },
+    { href: '/shop', text: 'New', category: 'new' },
+    { href: '/shop', text: 'Bestsellers', category: 'bestsellers' },
+    { href: '/shop', text: 'Deals', category: 'deals' },
+  ]
+
   return (
     <div className={styles.desktopNav}>
-      <div className={styles.storeName}>
+      <div className={styles.topContent}>
         <Link href='/'>
-          <h1>The Dog Store</h1>
+          <h1 className={styles.storeName}>The Dog Store</h1>
         </Link>
-      </div>
-      <div className={styles.links}>
-        <div className={styles.leftLinks}>
-          <Link href='/shop' className={styles.link} onClick={() => setProductCategory('all')}>Shop</Link>
-          <Link href='/shop' className={styles.link} onClick={() => setProductCategory('new')}>New</Link>
-          <Link href='/shop' className={styles.link} onClick={() => setProductCategory('bestsellers')}>Bestsellers</Link>
-          <Link href='/shop' className={styles.link} onClick={() => setProductCategory('deals')}>Deals</Link>
-        </div>
         <div className={styles.rightLinks}>
           {isLoggedIn 
             ? <Link href='/' onClick={handleLogout} className={styles.link}>Logout</Link>
@@ -37,6 +36,15 @@ const DesktopNav = () => {
             <img src={cartIcon} className={styles.linkIcon} alt="cart" />
             ({cartItems.length})
           </Link>
+        </div>
+      </div>
+      <div className={styles.links}>
+        <div className={styles.leftLinks}>
+          {links.map((link, index) => (
+            <Link key={index} href={link.href} className={styles.link} onClick={() => setProductCategory(link.category)}>
+              {link.text}
+            </Link>
+          ))}
         </div>
       </div>
     </div>
