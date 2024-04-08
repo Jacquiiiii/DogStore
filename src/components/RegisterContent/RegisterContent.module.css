@@ -14,11 +14,6 @@
   width: 305px;
   padding: 50px 0;
 }
-
-.title {
-  margin-bottom: 30px;
-}
-
 .form {
   display: flex;
   flex-direction: column;
@@ -29,7 +24,6 @@
   border: 1px solid #767575;
   padding: 15px;
   width: 225px;
-  font-size: 15px;
 }
 
 .button {
@@ -40,7 +34,6 @@
   border-radius: 20px;
   background: rgb(128, 0, 58);
   color: white;
-  font-size: 15px;
   cursor: pointer;
   border: 2px solid transparent;
   font-weight: bold;
@@ -59,14 +52,10 @@
   gap: 8px;
   background: none;
   margin-top: 35px;
-  font-size: 14px;
 }
 
 .link {
   text-align: center;
   width: 225px;
-}
-
-.link:hover {
   text-decoration: underline;
 }

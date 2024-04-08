@@ -8,7 +8,6 @@ const LoginContent = () => {
   return (
     <div className={styles.login}>
       <div className={styles.loginWrapper}>
-        <h2 className={styles.title}>Login</h2>
         <form onSubmit={handleSubmit} className={styles.form}>
           <input
             className={styles.input}
