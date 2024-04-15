@@ -47,3 +47,18 @@ export type ResponseErrorData = {
   message: string
 }
 
+export type Order = {
+  dogstore_user_id: string
+}
+
+export type OrderById = {
+  id: string
+}
+
+export type OrderItems = {
+  dogstore_order_id: string
+  product_id: string
+  quantity: string
+  total_price: string
+}
+
