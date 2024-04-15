@@ -31,7 +31,7 @@ INSERT INTO products (product_name, description, src, price, discounted_price, s
 
   ('Sweet Potato Crunchies', 'Grain-free, oven-baked sweet potato treats. Perfect for training or just because your dog deserves it!', 'https://i.etsystatic.com/10202447/r/il/48fb42/1795256471/il_fullxfull.1795256471_8zz7.jpg', 99.99, 0, 600, 69, 'treats');
 
-INSERT INTO orders (dogstore_user_id) VALUES
+INSERT INTO dogstore_orders (dogstore_user_id) VALUES
   (1),
   (2),
   (3),
@@ -43,7 +43,7 @@ INSERT INTO orders (dogstore_user_id) VALUES
   (9),
   (10);
 
-INSERT INTO order_items (order_id, product_id, quantity, total_price) VALUES
+INSERT INTO dogstore_order_items (dogstore_orders_id, product_id, quantity, total_price) VALUES
   (1, 1, 2, 19.98),
   (1, 2, 1, 19.99),
   (2, 3, 3, 89.97),
