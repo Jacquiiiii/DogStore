@@ -18,7 +18,9 @@ const CartContent = () => {
           </div>
           <div className={styles.checkout}>
             <span>Total: ${total}</span>
-            <button className={styles.checkoutButton}>Checkout</button>
+            <Link href="/checkout" className={styles.checkoutButton}>
+              Checkout
+            </Link>
           </div>
         </div>
       }
