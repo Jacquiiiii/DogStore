@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS dogstore_orders_order_items;
+DROP TABLE IF EXISTS dogstore_order_items;
 DROP TABLE IF EXISTS dogstore_orders;
 DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS dogstore_users;
@@ -27,7 +27,13 @@ CREATE TABLE products (
 
 CREATE TABLE dogstore_orders (
   id SERIAL PRIMARY KEY,
-  dogstore_user_id INTEGER REFERENCES dogstore_users(id),
+  dogstore_user_id INTEGER REFERENCES dogstore_users(id) NULL,
+  customer_first_name VARCHAR(100) NOT NULL,
+  customer_last_name VARCHAR(100) NOT NULL,
+  customer_email VARCHAR(255) NOT NULL,
+  customer_address VARCHAR(255) NOT NULL,
+  credit_card_number INTEGER NOT NULL,
+  credit_card_expiry VARCHAR(5) NOT NULL,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
