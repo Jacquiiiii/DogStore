@@ -36,9 +36,7 @@ export const handlePostToAddOrder = async (
   res: NextApiResponse<ResponseData | ResponseErrorData>,
 ) => {
   try {
-    const { dogstore_user_id } = req.body.data
-    const order = await addOrder({ dogstore_user_id })
-
+    const order = await addOrder(req.body.data)
     res.status(200).json(order)
   } catch (error: unknown) {
     const errorData: ResponseErrorData = { message: 'Internal Server Error. Cannot POST user.' }
