@@ -55,10 +55,11 @@ export type OrderById = {
   id: string
 }
 
+// TODO: Fix these types
 export type OrderItems = {
   dogstore_order_id: string
-  product_id: string
-  quantity: string
+  product_id: string | number
+  quantity: string | number | undefined
   total_price: string
 }
 

@@ -1,40 +1,33 @@
 import styles from './CheckoutContent.module.css'
 import useCart from '@/hooks/useCart'
-import { FormEvent, useState } from 'react'
+import { FormEvent } from 'react'
 import { useRouter } from 'next/router'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
 import { clearCart } from '@/store/slices/cartSlice'
+import { OrderItems } from '@/types/types'
 
 // TODO:
 // Add pay now logic
-// Figure out how to hide form url params
-// Update schema to add user details to order
-// Add types
 // Move logic into hook
-// Fix logged in vs not logged in logic (maybe database indicator for guest?)
-// Add comments
 
 const CheckoutContent = () => {
   const router = useRouter()
   const dispatch = useDispatch()
   const { cartItems, total } = useCart()
   const loggedIn: boolean = useSelector((state: RootState) => state.login.isLoggedIn)
-  const userId: string = loggedIn 
+
+  // Used for the order. Undefined indicates order was placed by a guest.
+  const userId: string | undefined = loggedIn 
     ? useSelector((state: RootState) => state.login.userId)
-    : '2'
+    : undefined
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-
-    // const formData = new FormData(event.currentTarget)
-    // const name = formData.get('name')
-    // const address = formData.get('address')
-    // const creditCard = formData.get('credit card number')
-    // const expiry = formData.get('credit card expiry')
+    const formData = new FormData(event.currentTarget)
 
     try {
-      const orderResponse: any = await fetch('/api/orders', {
+      const orderResponse = await fetch('/api/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -43,13 +36,19 @@ const CheckoutContent = () => {
           type: 'add order',
           data: {
             dogstore_user_id: userId,
+            customer_first_name: formData.get('first name'),
+            customer_last_name: formData.get('last name'),
+            customer_email: formData.get('email'),
+            customer_address: formData.get('address'),
+            credit_card_number: formData.get('credit card number'),
+            credit_card_expiry: formData.get('credit card expiry'),
           },
         }),
       })
       const orderData = await orderResponse.json()
 
       if (orderData && orderData.length > 0) {
-        const orderItems: any = cartItems.map((item) => (
+        const orderItems: OrderItems[] = cartItems.map((item) => (
           {
             dogstore_order_id: orderData[0].id,
             product_id: item.id,
@@ -58,7 +57,7 @@ const CheckoutContent = () => {
           }
         ))
 
-        const orderItemsPromises = orderItems.map((orderItem: any) => {
+        const orderItemsPromises = orderItems.map((orderItem: OrderItems) => {
           return fetch('/api/orders', {
             method: 'POST',
             headers: {
@@ -93,25 +92,37 @@ const CheckoutContent = () => {
       <form onSubmit={handleSubmit} className={styles.form}>
         <input
           className={styles.input}
-          type="name"
-          placeholder="Enter full name"
-          name="name"
+          type="text"
+          placeholder="Enter first name"
+          name="first name"
         />
         <input
           className={styles.input}
-          type="address"
+          type="text"
+          placeholder="Enter last name"
+          name="last name"
+        />
+        <input
+          className={styles.input}
+          type="email"
+          placeholder="Enter email"
+          name="email"
+        />
+        <input
+          className={styles.input}
+          type="text"
           placeholder="Enter address"
           name="address"
         />
         <input
           className={styles.input}
-          type="credit card number"
+          type="text"
           placeholder="Enter credit card number"
           name="credit card number"
         />
         <input
           className={styles.input}
-          type="credit card expiry"
+          type="text"
           placeholder="Enter credit card expiry"
           name="credit card expiry"
         />
