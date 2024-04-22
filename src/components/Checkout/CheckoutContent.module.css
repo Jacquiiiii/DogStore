@@ -1,0 +1,44 @@
+.checkout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input {
+  border: 1px solid #767575;
+  padding: 15px;
+  width: 300px;
+}
+
+.totalContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  margin-top: 10px;
+}
+
+.payNowButton {
+  background-color: rgb(128, 0, 58);
+  color: white;
+  border: none;
+  border-radius: 2px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 20px;
+  font-family: arial;
+}
+
+.payNowButton:hover {
+  background-color: #f7af1d;
+}
