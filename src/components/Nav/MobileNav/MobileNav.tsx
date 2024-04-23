@@ -1,10 +1,14 @@
 import Link from 'next/link'
+import { Raleway } from "next/font/google"
 import { useContext, useState } from 'react'
 import { useSelector } from 'react-redux'
 import styles from './MobileNav.module.css'
 import { ProductCategoryContext } from '@/providers/ProductCategoryProvider'
 import { RootState } from '@/store/store'
 import useLogout from '@/hooks/useLogout'
+import { openIcon, closeIcon, logoutIcon, loginIcon, linkIcon, cartIcon } from '@/constants/constants'
+
+const raleway = Raleway({ subsets: ["latin"] })
 
 const MobileNav = () => {
   const { setProductCategory } = useContext(ProductCategoryContext)
@@ -12,13 +16,6 @@ const MobileNav = () => {
   const isLoggedIn: boolean = useSelector((state: RootState) => state.login.isLoggedIn)
   const cartItems = useSelector((state: RootState) => state.cart)
   const [isOpen, setIsOpen] = useState(false)
-
-  const linkIcon = 'https://icons.veryicon.com/png/o/commerce-shopping/icon-of-lvshan-valley-mobile-terminal/right-arrow-18.png'
-  const openIcon = 'https://icons.veryicon.com/png/o/miscellaneous/system-icon-2/x-47.png'
-  const closeIcon = 'https://icons.veryicon.com/png/o/miscellaneous/solid-bank/hamburger-62.png'
-  const cartIcon = 'https://icons.veryicon.com/png/o/education-technology/alibaba-big-data-oneui/shopping-bag-22.png'
-  const loginIcon = 'https://icons.veryicon.com/png/o/miscellaneous/mirror-icon/logout-39.png'
-  const logoutIcon = 'https://icons.veryicon.com/png/o/miscellaneous/mirror-icon/logout-38.png'
 
   const links = [
     { href: '/shop', category: 'all', label: 'Shop All' },
@@ -70,6 +67,10 @@ const MobileNav = () => {
                 <img className={styles.linkIcon} src={linkIcon} alt={link.label} />
               </Link>
             ))}
+          </div>
+          <div className={styles.search}>
+            <input className={`${raleway.className} ${styles.searchInput}`} placeholder='Search' />
+            <button className={styles.searchButton}>🔍</button>
           </div>
         </div>
       }

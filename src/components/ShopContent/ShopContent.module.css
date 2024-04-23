@@ -1,7 +1,7 @@
 .shop {
   flex: 1;
   display: flex;
-  margin-top: 25px;
+  margin-top: 30px;
 }
 
 @media screen and (max-width: 768px) {

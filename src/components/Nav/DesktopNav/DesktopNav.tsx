@@ -1,18 +1,20 @@
 import Link from 'next/link'
+import { Raleway } from "next/font/google"
 import { useContext } from 'react'
 import { useSelector } from 'react-redux'
 import styles from './DesktopNav.module.css'
 import { ProductCategoryContext } from '@/providers/ProductCategoryProvider'
 import { RootState } from '@/store/store'
 import useLogout from '@/hooks/useLogout'
+import { cartIcon } from '@/constants/constants'
+
+const raleway = Raleway({ subsets: ["latin"] })
 
 const DesktopNav = () => {
   const { setProductCategory } = useContext(ProductCategoryContext)
   const { handleLogout } = useLogout()
   const isLoggedIn: boolean = useSelector((state: RootState) => state.login.isLoggedIn)
   const cartItems = useSelector((state: RootState) => state.cart)
-
-  const cartIcon = 'https://icons.veryicon.com/png/o/education-technology/alibaba-big-data-oneui/shopping-bag-22.png'
 
   const links = [
     { href: '/shop', text: 'Shop', category: 'all' },
@@ -45,6 +47,10 @@ const DesktopNav = () => {
               {link.text}
             </Link>
           ))}
+          <div className={styles.search}>
+            <input className={`${raleway.className} ${styles.searchInput}`} placeholder='Search' />
+            <button className={styles.searchButton}>🔍</button>
+          </div>
         </div>
       </div>
     </div>
