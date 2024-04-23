@@ -13,33 +13,27 @@ const Menu = () => {
 
   return (
     <div className={styles.menu}>
-      <div className={styles.menuContent}>
-        <div className={styles.dropdownContainer}>
-          <Dropdown 
-            options={capitalizedCategories} 
-            onChange={(option) => {
-              setProductCategory(option.value.toLowerCase())
-            }} 
-            value={defaultOption} 
-            placeholder={defaultOption}
-            controlClassName={styles.dropdown}
-          />
-        </div>
-        <div className={styles.search}>
-          <input className={styles.searchInput} />
-          <button className={styles.searchButton}>🔍</button>
-        </div>
-        <div className={styles.buttonContainer}>
-          {capitalizedCategories.map(category => (
-            <button 
-              key={category.toLowerCase()}
-              className={`${styles.button} ${productCategory === category.toLowerCase() ? styles.selected : ''}`} 
-              onClick={() => setProductCategory(category.toLowerCase())}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
+      <div className={styles.dropdownContainer}>
+        <Dropdown 
+          options={capitalizedCategories} 
+          onChange={(option) => {
+            setProductCategory(option.value.toLowerCase())
+          }} 
+          value={defaultOption} 
+          placeholder={defaultOption}
+          controlClassName={styles.dropdown}
+        />
+      </div>
+      <div className={styles.buttonContainer}>
+        {capitalizedCategories.map(category => (
+          <button 
+            key={category.toLowerCase()}
+            className={`${styles.button} ${productCategory === category.toLowerCase() ? styles.selected : ''}`} 
+            onClick={() => setProductCategory(category.toLowerCase())}
+          >
+            {category}
+          </button>
+        ))}
       </div>
     </div>
   )

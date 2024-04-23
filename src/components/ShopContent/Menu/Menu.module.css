@@ -1,40 +1,18 @@
 .menu {
   display: flex;
   flex-direction: column;
-  margin-left: 50px;
-  gap: 20px;
 }
 
-.search {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-}
-
-.searchInput {
-  border-radius: 15px;
-  border: 1px solid black;
-  padding: 5px;
-  width: 150px;
-}
-
-.searchInput:focus {
-  outline: none;
-}
-
-.searchButton {
-  border: none;
-  background: none;
-  cursor: pointer;
-  font-size: 20px;
+.dropdownContainer {
+  display: none;
 }
 
 .buttonContainer {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  width: 80%;
-  margin-top: 10px;
+  width: 150px;
+  margin-left: 20px;
 }
 
 .button {
@@ -56,59 +34,27 @@
   border-radius: 20px;
 }
 
-.dropdownContainer {
-  display: none;
-}
-
 @media screen and (max-width: 768px) {
   .menu {
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
     margin-left: 0;
   }
 
-  .menuContent {
-    display: flex;
-    justify-content: space-between;
-    gap: 5px;
-    align-items: center;
-    width: 70%;
-  }
-
-  .searchInput {
-    border: 1px solid black;
-    border-radius: 20px;
-    width: 150px;
-    flex-shrink: 1;
-    padding: 8px 0;
-  }
-
-   .buttonContainer {
+  .buttonContainer {
     display: none;
   }
 
   .dropdownContainer {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
   }
 
   .dropdown {
     border: 1px solid black;
-    border-radius: 20px;
-    width: 150px;
+    border-radius: 5px;
     flex-shrink: 1;
     color: black;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .menuContent {
-    width: 90%;
-  }
-}
-
-@media screen and (min-width: 769px) and (max-width: 907px) {
-  .menu {
-    margin-left: 15px;
+    width: 275px;
   }
 }
