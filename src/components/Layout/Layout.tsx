@@ -1,4 +1,3 @@
-import { ReactNode } from 'react'
 import { Raleway } from "next/font/google"
 import styles from './Layout.module.css'
 import ProductCategoryProvider from '../../providers/ProductCategoryProvider'
@@ -19,7 +18,7 @@ const Layout = ({ children }: LayoutProps) => {
           {children}
           <div style={{height: '100px'}} />
           <Footer />
-          {/* <ScrollToTop /> */}
+          <ScrollToTop />
         </ProductCategoryProvider>
       </main>
     </>
