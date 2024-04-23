@@ -4,9 +4,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 5px;
-  margin-bottom: 50px;
-  margin-left: 75px;
-  margin-right: 50px;
+  margin: 0 10px 0 25px;
 }
 
 .product {
@@ -61,35 +59,10 @@
   background-color: #f7af1d;
 }
 
-@media screen and (min-width: 769px) and (max-width: 907px) {
-  .products {
-    margin-left: 15px;
-    margin-right: 15px;
-  }
-
-  .product {
-    width: 265px;
-  }
-}
-
 @media screen and (max-width: 768px) {
   .products {
     margin-left: 0;
     margin-right: 0;
     justify-content: center;
-  }
-}
-
-@media (max-width: 575px) {
-  .product {
-    width: 375px;
-    height: 425px;
-  }
-}
-
-@media (max-width: 420px) {
-  .product {
-    width: 300px;
-    height: 350px;
   }
 }
