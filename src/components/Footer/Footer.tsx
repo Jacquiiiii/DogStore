@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import styles from './Footer.module.css'
-import { useContext } from 'react'
-import { ProductCategoryContext } from '@/providers/ProductCategoryProvider'
+import { useDispatch } from 'react-redux'
+import { setProductCategory } from '@/store/slices/productSlice'
 
 const Footer = () => {
-  const { setProductCategory } = useContext(ProductCategoryContext)
+  const dispatch = useDispatch()
 
   return (
     <div className={styles.footer}>
@@ -17,10 +17,10 @@ const Footer = () => {
         <div className={styles.linksContainer}>
           <div className={styles.links}>
             <h2 className={styles.linksHeader}>Products</h2>
-            <Link href='' className={styles.link} onClick={() => setProductCategory('food')}>Food</Link>
-            <Link href='' className={styles.link} onClick={() => setProductCategory('treats')}>Treats</Link>
-            <Link href='' className={styles.link} onClick={() => setProductCategory('toys')}>Toys</Link>
-            <Link href='' className={styles.link} onClick={() => setProductCategory('supplies')}>Supplies</Link>
+            <Link href='shop' className={styles.link} onClick={() => dispatch(setProductCategory('food'))}>Food</Link>
+            <Link href='shop' className={styles.link} onClick={() => dispatch(setProductCategory('treats'))}>Treats</Link>
+            <Link href='shop' className={styles.link} onClick={() => dispatch(setProductCategory('toys'))}>Toys</Link>
+            <Link href='shop' className={styles.link} onClick={() => dispatch(setProductCategory('supplies'))}>Supplies</Link>
           </div>
           <div className={styles.links}>
             <h2 className={styles.linksHeader}>About</h2>
@@ -41,7 +41,7 @@ const Footer = () => {
       <div className={styles.jacqui}>
         <hr className={styles.hr} />
         <div className={styles.disclaimer}>
-          <p>@2024 | Designed and developed by Jacqui Koroll</p>
+          <p>2024 | Designed and developed by Jacqui Koroll</p>
         </div>
       </div>
     </div>

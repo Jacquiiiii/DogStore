@@ -4,6 +4,7 @@ import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import loginReducer from './slices/loginSlice'
 import cartReducer from './slices/cartSlice'
+import productReducer from './slices/productSlice'
 
 const loginPersistConfig = { key: 'login', storage }
 // const cartPersistConfig = { key: 'cart', storage }
@@ -15,6 +16,7 @@ const store = configureStore({
   reducer: {
     login: persistedLoginReducer,
     cart: cartReducer,
+    product: productReducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false })
 })

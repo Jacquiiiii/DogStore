@@ -1,13 +1,14 @@
 import styles from './ShopContent.module.css'
 import Products from './Products/Products'
-import { useContext, useEffect, useState } from 'react'
-import { ProductCategoryContext } from '@/providers/ProductCategoryProvider'
+import { useEffect, useState } from 'react'
 import { productFilter } from './utils/productFilter'
 import Menu from './Menu/Menu'
 import { ProductsProps } from '@/types/types'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/store/store'
 
 const ShopContent = ({ productsData }: ProductsProps) => {
-  const { productCategory } = useContext(ProductCategoryContext)
+  const { productCategory } = useSelector((state: RootState) => state.product)
   const [products, setProducts] = useState(productsData)
 
   // Sets products based on category anytime category changes

@@ -3,7 +3,8 @@ import { Raleway } from "next/font/google"
 import { useContext, useState } from 'react'
 import { useSelector } from 'react-redux'
 import styles from './MobileNav.module.css'
-import { ProductCategoryContext } from '@/providers/ProductCategoryProvider'
+import { useDispatch } from 'react-redux'
+import { setProductCategory } from '@/store/slices/productSlice'
 import { RootState } from '@/store/store'
 import useLogout from '@/hooks/useLogout'
 import { openIcon, closeIcon, logoutIcon, loginIcon, linkIcon, cartIcon } from '@/constants/constants'
@@ -11,7 +12,7 @@ import { openIcon, closeIcon, logoutIcon, loginIcon, linkIcon, cartIcon } from '
 const raleway = Raleway({ subsets: ["latin"] })
 
 const MobileNav = () => {
-  const { setProductCategory } = useContext(ProductCategoryContext)
+  const dispatch = useDispatch()
   const { handleLogout } = useLogout()
   const isLoggedIn: boolean = useSelector((state: RootState) => state.login.isLoggedIn)
   const cartItems = useSelector((state: RootState) => state.cart)
@@ -35,7 +36,10 @@ const MobileNav = () => {
             {isLoggedIn ? 
               <Link 
                 href='/' 
-                onClick={() => { handleLogout(); setIsOpen(false); }} 
+                onClick={() => {
+                  handleLogout()
+                  setIsOpen(false)
+                }} 
                 className={styles.logoutLink}
               >
                 <img className={styles.linkIcon} src={logoutIcon} alt='logout' />
@@ -60,7 +64,10 @@ const MobileNav = () => {
               <Link 
                 key={link.label} 
                 href={link.href} 
-                onClick={() => {setProductCategory(link.category); setIsOpen(false);}} 
+                onClick={() => {
+                  dispatch(setProductCategory(link.category))
+                  setIsOpen(false)
+                }} 
                 className={styles.link}
               >
                 <span>{link.label}</span>

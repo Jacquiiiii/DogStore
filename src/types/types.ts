@@ -38,6 +38,10 @@ export type LoginState = {
   userId: string,
 }
 
+export type ProductState = {
+  productCategory: string
+}
+
 export type ResponseData = {
   id?: string
   name: string

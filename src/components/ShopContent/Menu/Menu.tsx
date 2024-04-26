@@ -1,11 +1,13 @@
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
 import styles from './Menu.module.css'
-import { useContext } from 'react'
-import { ProductCategoryContext } from '@/providers/ProductCategoryProvider'
+import { useDispatch, useSelector } from 'react-redux'
+import { setProductCategory } from '@/store/slices/productSlice'
+import { RootState } from '@/store/store'
 
 const Menu = () => {
-  const { productCategory, setProductCategory } = useContext(ProductCategoryContext)
+  const { productCategory } = useSelector((state: RootState) => state.product)
+  const dispatch = useDispatch()
 
   const categories = ['all', 'new', 'bestsellers', 'deals', 'food', 'treats', 'toys', 'supplies']
   const capitalizedCategories = categories.map(category => category.charAt(0).toUpperCase() + category.slice(1))
@@ -29,7 +31,7 @@ const Menu = () => {
           <button 
             key={category.toLowerCase()}
             className={`${styles.button} ${productCategory === category.toLowerCase() ? styles.selected : ''}`} 
-            onClick={() => setProductCategory(category.toLowerCase())}
+            onClick={() => dispatch(setProductCategory(category.toLowerCase()))}
           >
             {category}
           </button>
