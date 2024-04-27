@@ -2,7 +2,8 @@ import { Product, ProductState } from '@/types/types'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 const initialState: ProductState = {
-  products: [] as Product[],
+  products: [],
+  productSearchMatches: [],
   productCategory: 'all',
 }
 
@@ -16,8 +17,11 @@ export const productSlice = createSlice({
     setProducts: (state, action: PayloadAction<Product[]>) => {
       state.products = action.payload
     },
+    setProductSearchMatches: (state, action: PayloadAction<Product[]>) => {
+      state.productSearchMatches = action.payload
+    },
   },
 })
 
-export const { setProductCategory, setProducts } = productSlice.actions
+export const { setProductCategory, setProducts, setProductSearchMatches } = productSlice.actions
 export default productSlice.reducer

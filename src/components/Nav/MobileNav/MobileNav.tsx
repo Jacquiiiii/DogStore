@@ -1,15 +1,13 @@
 import Link from 'next/link'
-import { Raleway } from 'next/font/google'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import styles from './MobileNav.module.css'
 import { useDispatch } from 'react-redux'
-import { setProductCategory } from '@/store/slices/productSlice'
+import { setProductCategory, setProductSearchMatches } from '@/store/slices/productSlice'
 import { RootState } from '@/store/store'
 import useLogout from '@/hooks/useLogout'
 import { openIcon, closeIcon, logoutIcon, loginIcon, linkIcon, cartIcon } from '@/constants/constants'
-
-const raleway = Raleway({ subsets: ['latin'] })
+import Search from '@/components/Search/Search'
 
 const MobileNav = () => {
   const dispatch = useDispatch()
@@ -65,6 +63,7 @@ const MobileNav = () => {
                 key={link.label} 
                 href={link.href} 
                 onClick={() => {
+                  dispatch(setProductSearchMatches([]))
                   dispatch(setProductCategory(link.category))
                   setIsOpen(false)
                 }} 
@@ -75,10 +74,7 @@ const MobileNav = () => {
               </Link>
             ))}
           </div>
-          <div className={styles.search}>
-            <input className={`${raleway.className} ${styles.searchInput}`} placeholder='Search' />
-            <button className={styles.searchButton}>🔍</button>
-          </div>
+          <Search setMobileIsOpen={setIsOpen} mobile={true} />
         </div>
       }
       <Link href='/' className={styles.storeName}>

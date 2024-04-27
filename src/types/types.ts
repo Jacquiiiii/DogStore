@@ -40,6 +40,7 @@ export type ProductsProps = {
 export type ProductState = {
   productCategory: string
   products: Product[]
+  productSearchMatches: Product[]
 }
 
 // Order Types ----------------------------
@@ -71,5 +72,11 @@ export type ResponseData = {
 
 export type ResponseErrorData = {
   message: string
+}
+
+// Search Types ----------------------------
+export type SearchProps = {
+  mobile?: boolean
+  setMobileIsOpen?: ((value: boolean) => void)
 }
 
