@@ -15,7 +15,6 @@ const DesktopNav = () => {
   const { handleLogout } = useLogout()
   const isLoggedIn: boolean = useSelector((state: RootState) => state.login.isLoggedIn)
   const cartItems = useSelector((state: RootState) => state.cart.cartItems)
-  console.log(cartItems)
 
   const links = [
     { href: '/shop', text: 'Shop', category: 'all' },

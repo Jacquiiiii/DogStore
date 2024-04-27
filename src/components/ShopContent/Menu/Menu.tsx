@@ -20,7 +20,7 @@ const Menu = () => {
         <Dropdown 
           options={capitalizedCategories} 
           onChange={(option) => {
-            setProductCategory(option.value.toLowerCase())
+            dispatch(setProductCategory(option.value.toLowerCase()))
           }} 
           value={defaultOption} 
           placeholder={defaultOption}
