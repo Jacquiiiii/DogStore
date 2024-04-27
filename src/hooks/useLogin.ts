@@ -1,4 +1,4 @@
-import { FormEvent } from "react"
+import { FormEvent } from 'react'
 import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
 import { loginSuccess, setUserId } from '../store/slices/loginSlice'
@@ -9,7 +9,6 @@ const useLogin = () => {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
- 
     const formData = new FormData(event.currentTarget)
     const email = formData.get('email')
     const password = formData.get('password')

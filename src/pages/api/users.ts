@@ -1,6 +1,6 @@
-import type { NextApiRequest, NextApiResponse } from "next"
-import { handlePostToFilterUser, handlePostToAddUser } from "../../apis/users/usersController"
-import { ResponseData, ResponseErrorData } from "@/types/types"
+import type { NextApiRequest, NextApiResponse } from 'next'
+import { handlePostToFilterUser, handlePostToAddUser } from '../../apis/users/usersController'
+import { ResponseData, ResponseErrorData } from '@/types/types'
 
 const usersHandler = (
   req: NextApiRequest,

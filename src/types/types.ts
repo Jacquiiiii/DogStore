@@ -1,5 +1,16 @@
 import { ReactNode } from 'react'
 
+// General Types ----------------------------
+export type LayoutProps = {
+  children: ReactNode
+}
+
+// Login Types ----------------------------
+export type LoginState = {
+  isLoggedIn: boolean,
+  userId: string,
+}
+
 export type User = {
   email: string;
   password: string;
@@ -7,6 +18,7 @@ export type User = {
   last_name?: string;
 }
 
+// Product Types ----------------------------
 export type Product = {
   id: number,
   product_name: string,
@@ -25,32 +37,11 @@ export type ProductsProps = {
   productsData: Product[]
 }
 
-export type CartItemProps = {
-  product: Product
-}
-
-export type LayoutProps = {
-  children: ReactNode
-}
-
-export type LoginState = {
-  isLoggedIn: boolean,
-  userId: string,
-}
-
 export type ProductState = {
   productCategory: string
 }
 
-export type ResponseData = {
-  id?: string
-  name: string
-}
-
-export type ResponseErrorData = {
-  message: string
-}
-
+// Order Types ----------------------------
 export type Order = {
   dogstore_user_id: string
 }
@@ -59,11 +50,25 @@ export type OrderById = {
   id: string
 }
 
-// TODO: Fix these types
 export type OrderItems = {
   dogstore_order_id: string
   product_id: string | number
   quantity: string | number | undefined
   total_price: string
+}
+
+// Cart Types ----------------------------
+export type CartItemProps = {
+  product: Product
+}
+
+// API Response Types ----------------------------
+export type ResponseData = {
+  id?: string
+  name: string
+}
+
+export type ResponseErrorData = {
+  message: string
 }
 

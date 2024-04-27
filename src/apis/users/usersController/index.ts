@@ -1,9 +1,9 @@
-import type { NextApiRequest, NextApiResponse } from "next"
-import bcrypt from "bcrypt"
-import { addUser, getFilteredUser } from "../usersService"
-import { ResponseData, ResponseErrorData } from "@/types/types"
+import type { NextApiRequest, NextApiResponse } from 'next'
+import bcrypt from 'bcrypt'
+import { addUser, getFilteredUser } from '../usersService'
+import { ResponseData, ResponseErrorData } from '@/types/types'
 
-// Handles HTTP POST request to retrieve filtered user from the database
+// Handles HTTP POST request to retrieve a specific user from the database
 export const handlePostToFilterUser = async (
   req: NextApiRequest,
   res: NextApiResponse<ResponseData | ResponseErrorData>,
@@ -11,6 +11,8 @@ export const handlePostToFilterUser = async (
   try {
     const { password } = req.body
     const user = await getFilteredUser(req.body.filters)
+
+    // Uses bcrypt to compare the password from the request with the hashed password from the database
     const doesPasswordMatch = bcrypt.compareSync(password, user[0].password)
 
     !doesPasswordMatch ? 

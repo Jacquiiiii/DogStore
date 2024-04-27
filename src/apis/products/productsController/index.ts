@@ -1,8 +1,8 @@
-import type { NextApiRequest, NextApiResponse } from "next"
-import { getProducts } from "../productsService"
-import { ResponseData, ResponseErrorData } from "@/types/types"
+import type { NextApiRequest, NextApiResponse } from 'next'
+import { getProducts } from '../productsService'
+import { ResponseData, ResponseErrorData } from '@/types/types'
 
-// Handles HTTP GET request to retrieve products from database
+// Handles HTTP GET request to retrieve all products from database
 export const handleGetProducts = async (
   req: NextApiRequest,
   res: NextApiResponse<ResponseData | ResponseErrorData>,

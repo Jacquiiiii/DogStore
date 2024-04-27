@@ -13,6 +13,7 @@ const useRegister = () => {
     const email = formData.get('email')
     const password = formData.get('password')
 
+    // Creates user in the database
     try {
       const response = await fetch('/api/users', {
         method: 'POST',

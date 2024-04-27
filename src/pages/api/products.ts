@@ -1,8 +1,8 @@
-import type { NextApiRequest, NextApiResponse } from "next"
-import { handleGetProducts } from "../../apis/products/productsController"
-import { ResponseData, ResponseErrorData } from "@/types/types"
+import type { NextApiRequest, NextApiResponse } from 'next'
+import { handleGetProducts } from '../../apis/products/productsController'
+import { ResponseData, ResponseErrorData } from '@/types/types'
 
-const phonesHandler = (
+const productsHandler = (
   req: NextApiRequest,
   res: NextApiResponse<ResponseData | ResponseErrorData>,
 ) => {
@@ -13,4 +13,4 @@ const phonesHandler = (
   }
 }
 
-export default phonesHandler
+export default productsHandler
