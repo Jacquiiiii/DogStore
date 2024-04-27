@@ -4,7 +4,7 @@ import { RootState } from '../store/store'
 import { Product } from '@/types/types'
 
 const useCart = () => {
-  const initialCartItems = useSelector((state: RootState) => state.cart)
+  const initialCartItems = useSelector((state: RootState) => state.cart.cartItems)
   const cartItems: Product[] = []
 
   for (const item of initialCartItems) {

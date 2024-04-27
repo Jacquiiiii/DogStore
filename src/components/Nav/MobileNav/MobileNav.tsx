@@ -15,7 +15,7 @@ const MobileNav = () => {
   const dispatch = useDispatch()
   const { handleLogout } = useLogout()
   const isLoggedIn: boolean = useSelector((state: RootState) => state.login.isLoggedIn)
-  const cartItems = useSelector((state: RootState) => state.cart)
+  const cartItems = useSelector((state: RootState) => state.cart.cartItems)
   const [isOpen, setIsOpen] = useState(false)
 
   const links = [
