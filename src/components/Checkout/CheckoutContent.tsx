@@ -4,8 +4,9 @@ import useCheckout from '@/hooks/useCheckout'
 import { useEffect } from 'react'
 import Link from 'next/link'
 
-// TODO:
-// Add payment logic
+// @@TODO: 
+// Add credit card payment processing
+// Add security for entering credit card details
 
 const CheckoutContent = () => {
   const { total } = useCart()
@@ -32,8 +33,8 @@ const CheckoutContent = () => {
           <p>You should receive an email confirmation shortly. Please refer to our <Link className={styles.link} href='/'>shipping policies</Link> for more information.</p>
           <p className={styles.thankYou}>Thank you for shopping with the Dog Store!</p>
           <div className={styles.confirmationLinks}>
-            <Link className={styles.link} href="/shop">Continue shopping</Link>
-            <Link className={styles.link} href="/">Back to home</Link>
+            <Link className={styles.link} href='/shop'>Continue shopping</Link>
+            <Link className={styles.link} href='/'>Back to home</Link>
           </div>
         </div>
       }
@@ -44,49 +45,49 @@ const CheckoutContent = () => {
         <form onSubmit={handleSubmit} className={styles.form}>
           <input
             className={styles.input}
-            type="text"
-            placeholder="Enter first name"
-            name="first name"
+            type='text'
+            placeholder='Enter first name'
+            name='first name'
             required
           />
           <input
             className={styles.input}
-            type="text"
-            placeholder="Enter last name"
-            name="last name"
+            type='text'
+            placeholder='Enter last name'
+            name='last name'
             required
           />
           <input
             className={styles.input}
-            type="email"
-            placeholder="Enter email"
-            name="email"
+            type='email'
+            placeholder='Enter email'
+            name='email'
             required
           />
           <input
             className={styles.input}
-            type="text"
-            placeholder="Enter address"
-            name="address"
+            type='text'
+            placeholder='Enter address'
+            name='address'
             required
           />
           <input
             className={styles.input}
-            type="text"
-            placeholder="Enter credit card number"
-            name="credit card number"
+            type='text'
+            placeholder='Enter credit card number'
+            name='credit card number'
             required
           />
           <input
             className={styles.input}
-            type="text"
-            placeholder="Enter credit card expiry"
-            name="credit card expiry"
+            type='text'
+            placeholder='Enter credit card expiry'
+            name='credit card expiry'
             required
           />
           <div className={styles.totalContainer}>
             <span>Total: ${total}</span>
-            <button type="submit" className={styles.payNowButton}>Submit Order</button>
+            <button type='submit' className={styles.payNowButton}>Submit Order</button>
           </div>
         </form>
       }

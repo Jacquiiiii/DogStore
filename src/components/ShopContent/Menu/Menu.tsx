@@ -4,13 +4,14 @@ import styles from './Menu.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { setProductCategory } from '@/store/slices/productSlice'
 import { RootState } from '@/store/store'
+import { productCategories } from '@/constants/constants'
 
 const Menu = () => {
   const { productCategory } = useSelector((state: RootState) => state.product)
   const dispatch = useDispatch()
 
-  const categories = ['all', 'new', 'bestsellers', 'deals', 'food', 'treats', 'toys', 'supplies']
-  const capitalizedCategories = categories.map(category => category.charAt(0).toUpperCase() + category.slice(1))
+  // Capitalize the first letter of each category for nicer display on the ui
+  const capitalizedCategories = productCategories.map(category => category.charAt(0).toUpperCase() + category.slice(1))
   const defaultOption = productCategory.charAt(0).toUpperCase() + productCategory.slice(1)
 
   return (

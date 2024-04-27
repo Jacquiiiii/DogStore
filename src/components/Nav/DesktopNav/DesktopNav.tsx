@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Raleway } from "next/font/google"
+import { Raleway } from 'next/font/google'
 import { useDispatch } from 'react-redux'
 import { setProductCategory } from '@/store/slices/productSlice'
 import { useSelector } from 'react-redux'
@@ -8,7 +8,7 @@ import { RootState } from '@/store/store'
 import useLogout from '@/hooks/useLogout'
 import { cartIcon } from '@/constants/constants'
 
-const raleway = Raleway({ subsets: ["latin"] })
+const raleway = Raleway({ subsets: ['latin'] })
 
 const DesktopNav = () => {
   const dispatch = useDispatch()
@@ -36,7 +36,7 @@ const DesktopNav = () => {
             : <Link href='/login' className={styles.link}>Login</Link>
           }
           <Link href='/cart' className={styles.cartLink}>
-            <img src={cartIcon} className={styles.linkIcon} alt="cart" />
+            <img src={cartIcon} className={styles.linkIcon} alt='cart' />
             ({cartItems.length})
           </Link>
         </div>

@@ -3,3 +3,17 @@
   flex-direction: column;
   min-height: 100vh;
 }
+
+.topSpacer {
+  height: 250px;
+}
+
+.bottomSpacer {
+  height: 200px;
+}
+
+@media screen and (max-width: 600px){
+  .topSpacer {
+    height: 200px;
+  }
+}

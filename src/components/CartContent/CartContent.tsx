@@ -18,7 +18,7 @@ const CartContent = () => {
           </div>
           <div className={styles.checkout}>
             <span>Total: ${total}</span>
-            <Link href="/checkout" className={styles.checkoutButton}>
+            <Link href='/checkout' className={styles.checkoutButton}>
               Checkout
             </Link>
           </div>
@@ -27,7 +27,7 @@ const CartContent = () => {
       {cartItems.length === 0 &&
         <div className={styles.emptyCart}>
           <span>There are currently no items in your cart.</span>
-          <Link className={styles.continueShopping} href="/shop">
+          <Link className={styles.continueShopping} href='/shop'>
             Click here to continue shopping.
           </Link>
         </div>

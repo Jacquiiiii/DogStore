@@ -1,12 +1,15 @@
 import { FormEvent } from "react"
 import { useRouter } from 'next/router'
 
+// @@TODO: 
+// Change alerts to success failure messages
+// Refactor data passed to api call into variable
+
 const useRegister = () => {
   const router = useRouter()
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
- 
     const formData = new FormData(event.currentTarget)
     const firstName = formData.get('first name')
     const lastName = formData.get('last name')

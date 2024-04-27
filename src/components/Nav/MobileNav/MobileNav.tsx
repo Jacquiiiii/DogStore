@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { Raleway } from "next/font/google"
-import { useContext, useState } from 'react'
+import { Raleway } from 'next/font/google'
+import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import styles from './MobileNav.module.css'
 import { useDispatch } from 'react-redux'
@@ -9,7 +9,7 @@ import { RootState } from '@/store/store'
 import useLogout from '@/hooks/useLogout'
 import { openIcon, closeIcon, logoutIcon, loginIcon, linkIcon, cartIcon } from '@/constants/constants'
 
-const raleway = Raleway({ subsets: ["latin"] })
+const raleway = Raleway({ subsets: ['latin'] })
 
 const MobileNav = () => {
   const dispatch = useDispatch()
@@ -85,7 +85,7 @@ const MobileNav = () => {
         <h1>The Dog Store</h1>
       </Link>
       <Link href='/cart' className={styles.cartLink}>
-        <img src={cartIcon} className={styles.linkIcon} alt="cart" />
+        <img src={cartIcon} className={styles.linkIcon} alt='cart' />
         ({cartItems.length})
       </Link>
     </div>
