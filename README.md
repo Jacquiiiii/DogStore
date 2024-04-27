@@ -10,15 +10,15 @@ The Dog Store is a mock e-commerce application that sells dog supplies.
 - Coming soon: Checkout functionality and testing
 
 ### Tech stack:
-- [Next.js](https://nextjs.org/)
-- [Typescript](https://www.typescriptlang.org/)
-- [Redux](https://redux.js.org/)
+- [Next.js](https://nextjs.org/) with [Typescript](https://www.typescriptlang.org/)
 - [CSS modules](https://nextjs.org/docs/app/building-your-application/styling/css-modules)
 - [PostgreSQL](https://www.postgresql.org/)
 
 ### Packages used:
 - [pg](https://www.npmjs.com/package/pg)
 - [bcrypt](https://www.npmjs.com/package/bcrypt)
+- [react-dropdown](https://www.npmjs.com/package/react-dropdown)
+- [Redux](https://redux.js.org/), [Redux Toolkit](https://redux-toolkit.js.org/), [Redux Persist](https://redux-toolkit.js.org/rtk-query/usage/persistence-and-rehydration)
 
 ### Getting started:
 - Clone this repository

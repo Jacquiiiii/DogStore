@@ -1,14 +1,18 @@
 import styles from './Products.module.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addItemToCart } from '@/store/slices/cartSlice'
 import { ProductsProps } from '@/types/types'
+import { RootState } from '@/store/store'
 
 const Products = ({ productsData }: ProductsProps) => {
   const dispatch = useDispatch()
+  const productSearchMatches = useSelector((state: RootState) => state.product.productSearchMatches)
+
+  const productsToDisplay = productSearchMatches.length > 0 ? productSearchMatches : productsData
 
   return (
     <div className={styles.products}>
-      {productsData.map((product) =>
+      {productsToDisplay.map((product) =>
         <div className={styles.product}>
           <img src={product.src} alt={product.product_name} className={styles.productImage} />
           <div className={styles.productInfo}>

@@ -2,9 +2,11 @@ import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
 import styles from './Menu.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { setProductCategory } from '@/store/slices/productSlice'
+import { setProductCategory, setProductSearchMatches } from '@/store/slices/productSlice'
 import { RootState } from '@/store/store'
 import { productCategories } from '@/constants/constants'
+
+// @TODO: If products are rendered due to search, replace menu with search button so user can search again (??)
 
 const Menu = () => {
   const { productCategory } = useSelector((state: RootState) => state.product)
@@ -20,7 +22,8 @@ const Menu = () => {
         <Dropdown 
           options={capitalizedCategories} 
           onChange={(option) => {
-            setProductCategory(option.value.toLowerCase())
+            dispatch(setProductSearchMatches([]))
+            dispatch(setProductCategory(option.value.toLowerCase()))
           }} 
           value={defaultOption} 
           placeholder={defaultOption}
@@ -32,7 +35,10 @@ const Menu = () => {
           <button 
             key={category.toLowerCase()}
             className={`${styles.button} ${productCategory === category.toLowerCase() ? styles.selected : ''}`} 
-            onClick={() => dispatch(setProductCategory(category.toLowerCase()))}
+            onClick={() => {
+              dispatch(setProductCategory(category.toLowerCase()))
+              dispatch(setProductSearchMatches([]))
+            }}
           >
             {category}
           </button>

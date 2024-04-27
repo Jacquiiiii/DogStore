@@ -85,39 +85,6 @@
   align-items: center;
 }
 
-.search {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  border-radius: 3px;
-  border: 1px solid black;
-  padding: 10px;
-  margin-top: 20px;
-  background-color: white;
-}
-
-.searchInput {
-  border: none;
-  width: 100%;
-  background: none;
-}
-
-.searchInput:focus {
-  outline: none;
-}
-
-.searchInput::placeholder {
-  font-size: 14px;
-  color: black;
-}
-
-.searchButton {
-  border: none;
-  background: none;
-  cursor: pointer;
-  font-size: 15px;
-}
-
 @media (min-width: 601px) {
   .mobileNav {
     display: none;

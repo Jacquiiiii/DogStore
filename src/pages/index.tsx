@@ -3,8 +3,15 @@ import HomeContent from '@/components/HomeContent/HomeContent'
 import Layout from '@/components/Layout/Layout'
 import { getProducts } from '@/apis/products/productsService'
 import { Product, ProductsProps } from '@/types/types'
+import { useDispatch } from 'react-redux'
+import { setProducts } from '@/store/slices/productSlice'
 
 const Home = ({ productsData }: ProductsProps) => {
+  const dispatch = useDispatch()
+
+  // Dispatches the products data to the store
+  dispatch(setProducts(productsData))
+
   return (
     <>
       <Head>
