@@ -1,8 +1,8 @@
-import type { NextApiRequest, NextApiResponse } from "next"
-import { addOrder, addOrderItems, getFilteredOrder, getFilteredOrderItems } from "../ordersService"
-import { ResponseData, ResponseErrorData } from "@/types/types"
+import type { NextApiRequest, NextApiResponse } from 'next'
+import { addOrder, addOrderItems, getFilteredOrder, getFilteredOrderItems } from '../ordersService'
+import { ResponseData, ResponseErrorData } from '@/types/types'
 
-// Handles HTTP POST request to retrieve order from the database
+// Handles HTTP POST request to retrieve a specific order from the database
 export const handlePostToFilterOrder = async (
   req: NextApiRequest,
   res: NextApiResponse<ResponseData | ResponseErrorData>,
@@ -52,7 +52,6 @@ export const handlePostToAddOrderItems = async (
   try {
     const { dogstore_order_id, product_id, quantity, total_price } = req.body.data
     const orderItems = await addOrderItems({ dogstore_order_id, product_id, quantity, total_price })
-
     res.status(200).json(orderItems)
   } catch (error: unknown) {
     const errorData: ResponseErrorData = { message: 'Internal Server Error. Cannot POST user.' }

@@ -1,15 +1,15 @@
-import Head from "next/head"
-import HomeContent from "@/components/HomeContent/HomeContent"
-import Layout from "@/components/Layout/Layout"
-import { getProducts } from "@/apis/products/productsService"
-import { Product, ProductsProps } from "@/types/types"
+import Head from 'next/head'
+import HomeContent from '@/components/HomeContent/HomeContent'
+import Layout from '@/components/Layout/Layout'
+import { getProducts } from '@/apis/products/productsService'
+import { Product, ProductsProps } from '@/types/types'
 
 const Home = ({ productsData }: ProductsProps) => {
   return (
     <>
       <Head>
         <title>Dog Store</title>
-        <meta name="home page" content="Home page content for The Dog Store" />
+        <meta name='home page' content='Home page content for The Dog Store' />
       </Head>
       <Layout>
         <HomeContent productsData={productsData} />
@@ -22,6 +22,7 @@ export const getStaticProps = async () => {
   // Fetches directly from the API as props are obtained at server build time
   const rawProductsData: Product[] = await getProducts()
 
+  // Formats data so each products created_at value is a string instead of a Date object
   const productsData = rawProductsData.map(product => ({
     ...product,
     created_at: product.created_at?.toString(),

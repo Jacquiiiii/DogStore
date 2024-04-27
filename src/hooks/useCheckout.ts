@@ -1,5 +1,4 @@
-import { FormEvent } from 'react'
-import { useRouter } from 'next/router'
+import { FormEvent, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
 import { clearCart } from '@/store/slices/cartSlice'
@@ -7,12 +6,14 @@ import { OrderItems } from '@/types/types'
 import useCart from './useCart'
 
 const useCheckout = () => {
-  const router = useRouter()
   const dispatch = useDispatch()
   const { cartItems } = useCart()
   const loggedIn: boolean = useSelector((state: RootState) => state.login.isLoggedIn)
+  const [orderSuccess, setOrderSuccess] = useState<boolean>(false)
+  const [orderFailure, setOrderFailure] = useState<boolean>(false)
+  const [orderNumber, setOrderNumber] = useState<string>('')
 
-  // Used for the order. Undefined indicates order was placed by a guest.
+  // Used to indicate who placed the order, either a valid id for a logged in user or undefined for a guest user
   const userId: string | undefined = loggedIn 
     ? useSelector((state: RootState) => state.login.userId)
     : undefined
@@ -21,6 +22,17 @@ const useCheckout = () => {
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
 
+    const formDataForOrder = {
+      dogstore_user_id: userId,
+      customer_first_name: formData.get('first name'),
+      customer_last_name: formData.get('last name'),
+      customer_email: formData.get('email'),
+      customer_address: formData.get('address'),
+      credit_card_number: formData.get('credit card number'),
+      credit_card_expiry: formData.get('credit card expiry'),
+    }
+
+    // Creates order and order items in the database
     try {
       const orderResponse = await fetch('/api/orders', {
         method: 'POST',
@@ -29,18 +41,12 @@ const useCheckout = () => {
         },
         body: JSON.stringify({
           type: 'add order',
-          data: {
-            dogstore_user_id: userId,
-            customer_first_name: formData.get('first name'),
-            customer_last_name: formData.get('last name'),
-            customer_email: formData.get('email'),
-            customer_address: formData.get('address'),
-            credit_card_number: formData.get('credit card number'),
-            credit_card_expiry: formData.get('credit card expiry'),
-          },
+          data: formDataForOrder
         }),
       })
       const orderData = await orderResponse.json()
+
+      setOrderNumber(orderData[0].id)
 
       if (orderData && orderData.length > 0) {
         const orderItems: OrderItems[] = cartItems.map((item) => (
@@ -71,18 +77,25 @@ const useCheckout = () => {
           orderItemsResponses.length === orderItemsPromises.length &&
           orderItemsResponses.every((response) => response.ok)
         ) {
-          alert('Order successfully placed. Redirecting to home page.')
+          setOrderSuccess(true)
           dispatch(clearCart())
-          router.push('/')
         } 
       } 
     } catch (error) {
       console.error('An error occurred: ', error)
-      alert('Something went wrong, please try again.')
+      setOrderSuccess(false)
+      setOrderFailure(true)
     }
   }
 
-  return { handleSubmit }
+  return { 
+    handleSubmit, 
+    orderSuccess, 
+    setOrderSuccess, 
+    orderFailure, 
+    setOrderFailure, 
+    orderNumber 
+  }
 }
 
 export default useCheckout

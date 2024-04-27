@@ -1,20 +1,21 @@
 import Link from 'next/link'
-import { Raleway } from "next/font/google"
-import { useContext, useState } from 'react'
+import { Raleway } from 'next/font/google'
+import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import styles from './MobileNav.module.css'
-import { ProductCategoryContext } from '@/providers/ProductCategoryProvider'
+import { useDispatch } from 'react-redux'
+import { setProductCategory } from '@/store/slices/productSlice'
 import { RootState } from '@/store/store'
 import useLogout from '@/hooks/useLogout'
 import { openIcon, closeIcon, logoutIcon, loginIcon, linkIcon, cartIcon } from '@/constants/constants'
 
-const raleway = Raleway({ subsets: ["latin"] })
+const raleway = Raleway({ subsets: ['latin'] })
 
 const MobileNav = () => {
-  const { setProductCategory } = useContext(ProductCategoryContext)
+  const dispatch = useDispatch()
   const { handleLogout } = useLogout()
   const isLoggedIn: boolean = useSelector((state: RootState) => state.login.isLoggedIn)
-  const cartItems = useSelector((state: RootState) => state.cart)
+  const cartItems = useSelector((state: RootState) => state.cart.cartItems)
   const [isOpen, setIsOpen] = useState(false)
 
   const links = [
@@ -35,7 +36,10 @@ const MobileNav = () => {
             {isLoggedIn ? 
               <Link 
                 href='/' 
-                onClick={() => { handleLogout(); setIsOpen(false); }} 
+                onClick={() => {
+                  handleLogout()
+                  setIsOpen(false)
+                }} 
                 className={styles.logoutLink}
               >
                 <img className={styles.linkIcon} src={logoutIcon} alt='logout' />
@@ -60,7 +64,10 @@ const MobileNav = () => {
               <Link 
                 key={link.label} 
                 href={link.href} 
-                onClick={() => {setProductCategory(link.category); setIsOpen(false);}} 
+                onClick={() => {
+                  dispatch(setProductCategory(link.category))
+                  setIsOpen(false)
+                }} 
                 className={styles.link}
               >
                 <span>{link.label}</span>
@@ -78,7 +85,7 @@ const MobileNav = () => {
         <h1>The Dog Store</h1>
       </Link>
       <Link href='/cart' className={styles.cartLink}>
-        <img src={cartIcon} className={styles.linkIcon} alt="cart" />
+        <img src={cartIcon} className={styles.linkIcon} alt='cart' />
         ({cartItems.length})
       </Link>
     </div>

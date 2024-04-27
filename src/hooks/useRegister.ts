@@ -1,18 +1,22 @@
 import { FormEvent } from "react"
 import { useRouter } from 'next/router'
 
+// @@TODO: 
+// Change alerts to success failure messages
+// Refactor data passed to api call into variable
+
 const useRegister = () => {
   const router = useRouter()
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
- 
     const formData = new FormData(event.currentTarget)
     const firstName = formData.get('first name')
     const lastName = formData.get('last name')
     const email = formData.get('email')
     const password = formData.get('password')
 
+    // Creates user in the database
     try {
       const response = await fetch('/api/users', {
         method: 'POST',

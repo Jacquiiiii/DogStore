@@ -1,20 +1,21 @@
 import Link from 'next/link'
-import { Raleway } from "next/font/google"
-import { useContext } from 'react'
+import { Raleway } from 'next/font/google'
+import { useDispatch } from 'react-redux'
+import { setProductCategory } from '@/store/slices/productSlice'
 import { useSelector } from 'react-redux'
 import styles from './DesktopNav.module.css'
-import { ProductCategoryContext } from '@/providers/ProductCategoryProvider'
 import { RootState } from '@/store/store'
 import useLogout from '@/hooks/useLogout'
 import { cartIcon } from '@/constants/constants'
 
-const raleway = Raleway({ subsets: ["latin"] })
+const raleway = Raleway({ subsets: ['latin'] })
 
 const DesktopNav = () => {
-  const { setProductCategory } = useContext(ProductCategoryContext)
+  const dispatch = useDispatch()
   const { handleLogout } = useLogout()
   const isLoggedIn: boolean = useSelector((state: RootState) => state.login.isLoggedIn)
-  const cartItems = useSelector((state: RootState) => state.cart)
+  const cartItems = useSelector((state: RootState) => state.cart.cartItems)
+  console.log(cartItems)
 
   const links = [
     { href: '/shop', text: 'Shop', category: 'all' },
@@ -35,7 +36,7 @@ const DesktopNav = () => {
             : <Link href='/login' className={styles.link}>Login</Link>
           }
           <Link href='/cart' className={styles.cartLink}>
-            <img src={cartIcon} className={styles.linkIcon} alt="cart" />
+            <img src={cartIcon} className={styles.linkIcon} alt='cart' />
             ({cartItems.length})
           </Link>
         </div>
@@ -43,7 +44,7 @@ const DesktopNav = () => {
       <div className={styles.links}>
         <div className={styles.leftLinks}>
           {links.map((link, index) => (
-            <Link key={index} href={link.href} className={styles.link} onClick={() => setProductCategory(link.category)}>
+            <Link key={index} href={link.href} className={styles.link} onClick={() => dispatch(setProductCategory(link.category))}>
               {link.text}
             </Link>
           ))}

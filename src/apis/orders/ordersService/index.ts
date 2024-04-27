@@ -1,6 +1,6 @@
-import { Order, OrderById, OrderItems } from "@/types/types"
-import { getDataFromDb } from "../../../../db/utils/dbGet"
-import { addDataToDb } from "../../../../db/utils/dbPost"
+import { Order, OrderById, OrderItems } from '@/types/types'
+import { getDataFromDb } from '../../../../db/utils/dbGet'
+import { addDataToDb } from '../../../../db/utils/dbPost'
 
 // Retrieves order from the database filtered by params
 export const getFilteredOrder = async (params: OrderById) => {
@@ -9,7 +9,6 @@ export const getFilteredOrder = async (params: OrderById) => {
     caseSensitive: true,
     data: params
   }
-
   return getDataFromDb('dogstore_orders', updatedParams)
 }
 
@@ -20,11 +19,10 @@ export const getFilteredOrderItems = async (params: Order) => {
     caseSensitive: true,
     data: params
   }
-
   return getDataFromDb('dogstore_order_items', updatedParams)
 }
 
-// Adds an order to the database
+// Adds order to the database
 export const addOrder = async (params: Order) => addDataToDb('dogstore_orders', params)
 
 // Adds order items to the database
