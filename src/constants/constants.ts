@@ -22,3 +22,4 @@ export const scrollToTopIcon = 'https://icons.veryicon.com/png/o/clothes-accesso
 
 // Shop consts
 export const productCategories = ['all', 'new', 'bestsellers', 'deals', 'food', 'treats', 'toys', 'supplies']
+export const closeModalButton = 'https://icons.veryicon.com/png/o/miscellaneous/feather-v423/x-18.png'

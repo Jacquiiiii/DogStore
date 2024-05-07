@@ -59,6 +59,12 @@
   background-color: #f7af1d;
 }
 
+.openModalButton {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
   .products {
     margin-left: 0;

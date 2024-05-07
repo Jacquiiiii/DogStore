@@ -37,10 +37,16 @@ export type ProductsProps = {
   productsData: Product[]
 }
 
+export type ProductProps = {
+  product: Product
+}
+
 export type ProductState = {
   productCategory: string
   products: Product[]
   productSearchMatches: Product[]
+  showProduct: boolean
+  product: Product | null
 }
 
 // Order Types ----------------------------
