@@ -8,12 +8,17 @@
   flex-shrink: 1;
 }
 
-.productName {
-  margin-right: 20px;
+.quantityUpdater {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
 }
 
 .quantity {
-  margin-left: 5px;
+  border: 1px solid #ccc;
+  padding: 2px 5px;
+  font-size: 15px;
 }
 
 .checkout {
@@ -22,9 +27,29 @@
   align-items: center;
 }
 
+
 .removeButton {
   background: none;
   border: none;
   cursor: pointer;
   font-size: 16px;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 2px 5px;
+  font-size: 15px;
+}
+
+.addButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 2px 5px;
+  font-size: 15px;
 }
