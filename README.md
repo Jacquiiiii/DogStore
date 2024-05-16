@@ -8,12 +8,14 @@ The Dog Store is a mock e-commerce application that sells dog supplies.
 - Users can log in to an existing account
 - Users can add products to cart
 - Users can checkout cart and place order
-- Coming soon:
-   - Mock credit card payment processing
-   - Testing with jest, cypress and storybook
-   - GraphQL integration for database queries
-   - Accessibility enhancements
-   - Design revamp
+
+### Coming soon:
+- Mock credit card payment processing
+- Improved search functionality
+- Testing with jest, cypress and storybook
+- GraphQL integration for database queries
+- Accessibility enhancements
+- Design / CSS revamp
 
 ### Tech stack:
 - [Next.js](https://nextjs.org/) with [Typescript](https://www.typescriptlang.org/)
