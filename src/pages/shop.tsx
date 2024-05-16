@@ -28,8 +28,6 @@ export const getStaticProps = async () => {
     created_at: product.created_at?.toString(),
   }))
 
-  console.log(productsData[0])
-
   return {
     props: { productsData: productsData },
     revalidate: 1,

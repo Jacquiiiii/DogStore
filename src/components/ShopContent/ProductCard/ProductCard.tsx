@@ -4,12 +4,8 @@ import { addItemToCart } from '@/store/slices/cartSlice'
 import { ProductProps } from '@/types/types'
 import { setShowProduct } from '@/store/slices/productSlice'
 
-// @@TODO: Add mobile styling
-
 const ProductCard = ({ product }: ProductProps) => {
   const dispatch = useDispatch()
-
-  console.log(product)
 
   return (
     <div className={styles.productCard}>

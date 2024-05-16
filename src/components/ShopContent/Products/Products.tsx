@@ -6,16 +6,13 @@ import { RootState } from '@/store/store'
 import { setShowProduct } from '@/store/slices/productSlice'
 import ProductCard from '../ProductCard/ProductCard'
 import { useState } from 'react'
-import { Raleway } from 'next/font/google'
-
-const raleway = Raleway({ subsets: ['latin'] })
 
 const Products = ({ productsData }: ProductsProps) => {
   const dispatch = useDispatch()
   const productSearchMatches = useSelector((state: RootState) => state.product.productSearchMatches)
   const showProduct = useSelector((state: RootState) => state.product.showProduct)
   const productsToDisplay = productSearchMatches.length > 0 ? productSearchMatches : productsData
-  const [productToDisplay, setProductToDisplay] = useState({})
+  const [productToDisplay, setProductToDisplay] = useState<Product | null>(null)
 
   const handleModalOpen = (productData: Product) => {
     setProductToDisplay(productData)
@@ -26,8 +23,6 @@ const Products = ({ productsData }: ProductsProps) => {
     event.stopPropagation()
     dispatch(addItemToCart(product))
   }
-
-  console.log(productsToDisplay)
 
   return (
     <div className={styles.products}>
@@ -57,7 +52,9 @@ const Products = ({ productsData }: ProductsProps) => {
           </div>
         </button>
       )}
-      {showProduct && <ProductCard product={productToDisplay}/>}
+      {showProduct && productToDisplay && 
+        <ProductCard product={productToDisplay} />
+      }
     </div>
   )
 }
