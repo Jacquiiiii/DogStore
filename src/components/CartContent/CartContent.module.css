@@ -22,12 +22,13 @@
 
 .checkoutButton {
   background-color: rgb(128, 0, 58);
-  color: white;
+  border-radius: 3px;
   border: none;
-  padding: 5px 10px;
+  padding: 7px 10px;
   cursor: pointer;
+  color: white;
   transition: background-color 0.3s ease;
-  border-radius: 20px;
+  font-size: 15px;
 }
 
 .checkoutButton:hover {
