@@ -6,6 +6,9 @@ import { RootState } from '@/store/store'
 import { setShowProduct } from '@/store/slices/productSlice'
 import ProductCard from '../ProductCard/ProductCard'
 import { useState } from 'react'
+import { Raleway } from 'next/font/google'
+
+const raleway = Raleway({ subsets: ['latin'] })
 
 const Products = ({ productsData }: ProductsProps) => {
   const dispatch = useDispatch()
@@ -24,43 +27,32 @@ const Products = ({ productsData }: ProductsProps) => {
     dispatch(addItemToCart(product))
   }
 
+  console.log(productsToDisplay)
+
   return (
     <div className={styles.products}>
       {productsToDisplay.map((product) =>
         <button className={styles.openModalButton} onClick={() => handleModalOpen(product)} key={product.id}>
           <div className={styles.product}>
             <img src={product.src} alt={product.product_name} className={styles.productImage} />
-            <div className={styles.productInfo}>
-              <h3 className={styles.name}>{product.product_name}</h3>
-              <p className={styles.description}>{product.description}</p>
-              <div>
-                {product.discounted_price !== '0.00' ? 
-                  <div className={styles.buyContainer}>
-                    <div className={styles.prices}>
-                      <p className={styles.discountedPrice}>
-                        ${product.discounted_price}
-                      </p>
-                      <p className={styles.strikedPrice}>${product.price}</p>
-                    </div>
-                    <button 
-                      className={styles.addToCart} 
-                      onClick={(e) => handleAddToCart(product, e)}
-                    >
-                      Add to cart
-                    </button>
-                  </div>
-                  :
-                  <div className={styles.buyContainer}>
-                    <p className={styles.price}>${product.price}</p>
-                    <button 
-                      className={styles.addToCart} 
-                      onClick={(e) => handleAddToCart(product, e)}
-                    >
-                      Add to cart
-                    </button>
-                  </div>
-                }
-              </div>
+            <h3 className={styles.name}>{product.product_name}</h3>
+            <div className={styles.buyContainer}>
+              {product.discounted_price !== '0.00' ? 
+                <div className={styles.prices}>
+                  <p className={styles.discountedPrice}>
+                    ${product.discounted_price}
+                  </p>
+                  <p className={styles.strikedPrice}>${product.price}</p>
+                </div>
+                :
+                <p className={styles.price}>${product.price}</p>
+              }
+              <button 
+                className={styles.addToCart} 
+                onClick={(e) => handleAddToCart(product, e)}
+              >
+                Add to cart
+              </button>
             </div>
           </div>
         </button>
