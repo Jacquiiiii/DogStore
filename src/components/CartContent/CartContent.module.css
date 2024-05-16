@@ -24,12 +24,10 @@
   background-color: rgb(128, 0, 58);
   color: white;
   border: none;
-  border-radius: 2px;
   padding: 5px 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   border-radius: 20px;
-  font-family: arial;
 }
 
 .checkoutButton:hover {

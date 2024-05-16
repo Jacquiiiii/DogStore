@@ -29,7 +29,6 @@ const Search = ({setMobileIsOpen, mobile}: SearchProps) => {
         className={mobile ? styles.mobileSearchButton : styles.searchButton}
         onClick={() => {
           const productMatches = productSearch(products, searchTerm)
-          console.log(productMatches)
           dispatch(setProductSearchMatches(productMatches))
           dispatch(setProductCategory('all'))
           setMobileIsOpen && searchTerm !== '' && setMobileIsOpen(false)
