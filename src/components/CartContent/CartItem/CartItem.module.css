@@ -13,10 +13,13 @@
   align-items: center;
   justify-content: center;
   margin-left: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
 }
 
 .quantity {
-  border: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
   padding: 2px 5px;
   font-size: 15px;
 }
@@ -34,9 +37,6 @@
   cursor: pointer;
   font-size: 16px;
   text-align: center;
-  border-top: 1px solid #ccc;
-  border-left: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
   padding: 2px 5px;
   font-size: 15px;
 }
@@ -47,9 +47,6 @@
   cursor: pointer;
   font-size: 16px;
   text-align: center;
-  border-top: 1px solid #ccc;
-  border-right: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
   padding: 2px 5px;
   font-size: 15px;
 }

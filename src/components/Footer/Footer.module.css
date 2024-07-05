@@ -1,6 +1,6 @@
 .footer {
   background: black;
-  height: 250px;
+  height: 275px;
 }
 
 .footerContent {
@@ -72,7 +72,7 @@
 
 @media (max-width: 768px) {
   .footer {
-    height: 390px;
+    height: 425px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -90,6 +90,10 @@
   .disclaimer {
     justify-content: center;
   }
+
+  .disclaimer p {
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 375px) {
@@ -99,9 +103,5 @@
 
   .linksHeader {
     font-size: 18px;
-  }
-
-  .jacqui {
-    font-size: 12px;
   }
 }
